@@ -1,0 +1,46 @@
+[project]
+name = "jobhunter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "alembic>=1.20.1",
+    "httpx>=0.28.1",
+    "psycopg[binary]>=3.3.7",
+    "pydantic>=2.14.2",
+    "pydantic-settings>=2.16.2",
+    "python-dotenv>=1.2.4",
+    "pyyaml>=6.0.3",
+    "respx>=0.23.1",
+    "sqlalchemy[asyncio]>=2.1.6",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1.post1",
+    "ruff>=0.17.3",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+# Target a specific Python version
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+# Enable both default rules (E, F) and import sorting (I)
+select = ["E", "F", "I"]
+
+[tool.ruff.format]
+# Customize formatting choices
+quote-style = "double"    # Options: "single", "double", or "preserve"
+indent-style = "space"    # Options: "space" or "tab"
+skip-magic-trailing-comma = false
+
