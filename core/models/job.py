@@ -33,10 +33,20 @@ class Job(Base):
     location: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     apply_url: Mapped[Optional[str]] = mapped_column(String(1000), nullable=True)
-    source: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+    source: Mapped[str] = mapped_column(String(255), nullable=False)
     posted_at: Mapped[Optional[datetime]] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
     discovered_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, default=utcnow
     )
+    
+    external_id: Mapped[str] = mapped_column(String(255), nullable=False)
+    
+    __table_args__ = (
+    UniqueConstraint(
+        "source",
+        "external_id",
+        name="uq_job_source_external_id",
+    ),
+)

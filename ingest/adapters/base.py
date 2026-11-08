@@ -6,6 +6,6 @@ from ingest.schemas import NormalizedJob, ATSBoard
 
 
 class JobFetcher(Protocol):
-
-    async def fetch_jobs(self, board : ATSBoard, client: httpx.AsyncClient) -> list[NormalizedJob]:
-        ...
+    async def fetch_jobs(
+        self, board: ATSBoard, client: httpx.AsyncClient
+    ) -> list[NormalizedJob]: ...

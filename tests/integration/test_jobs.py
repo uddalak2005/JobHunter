@@ -14,6 +14,7 @@ async def test_create_and_retrieve_job():
             description="Backend engineering internship",
             apply_url="https://example.com/google-intern",
             source="greenhouse",
+            external_id="12345",
         )
 
         session.add(job)

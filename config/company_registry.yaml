@@ -1,0 +1,16 @@
+companies:
+  - company_name: Stripe
+    provider: greenhouse
+    board_id: stripe
+    career_url: https://stripe.com/jobs
+    enabled: true
+  - company_name: Spotify
+    provider: lever
+    board_id: spotify
+    career_url: https://lifeatspotify.com/jobs
+    enabled: true
+  - company_name: Linear
+    provider: ashby
+    board_id: linear
+    career_url: https://linear.app/careers
+    enabled: true

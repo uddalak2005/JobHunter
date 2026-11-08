@@ -1,16 +1,17 @@
+from urllib.parse import quote
+
 from pydantic import computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from urllib.parse import quote
 
 
 class Settings(BaseSettings):
     database_connection_string: str
     database_password: str
 
-    telegram_bot_token: str
-    telegram_chat_id: str
+    telegram_bot_token: str | None = None
+    telegram_chat_id: str | None = None
 
-    gemini_api_key: str
+    gemini_api_key: str | None = None
 
     @computed_field
     @property

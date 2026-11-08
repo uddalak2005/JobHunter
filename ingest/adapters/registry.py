@@ -2,6 +2,7 @@ from ingest.adapters.greenhouse import GreenhouseAdapter
 from ingest.adapters.ashby import AshbyAdapter
 from ingest.adapters.lever import LeverAdapter
 
+
 class AdapterRegistry:
     """A registry for managing and retrieving adapter instances."""
 

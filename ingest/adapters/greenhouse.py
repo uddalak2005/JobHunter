@@ -6,11 +6,14 @@ from ingest.schemas import NormalizedJob, ATSBoard
 
 from ingest.adapters.base import JobFetcher
 
+
 class GreenhouseAdapter(JobFetcher):
     BASE_URL = "https://boards-api.greenhouse.io/v1/boards"
 
-    async def fetch_jobs(self, board : ATSBoard, client: httpx.AsyncClient) -> list[NormalizedJob]:
-        
+    async def fetch_jobs(
+        self, board: ATSBoard, client: httpx.AsyncClient
+    ) -> list[NormalizedJob]:
+
         if board.provider != "greenhouse":
             raise ValueError("GreenhouseAdapter requires a Greenhouse board")
 
@@ -38,10 +41,9 @@ class GreenhouseAdapter(JobFetcher):
                 apply_url=job.get("absolute_url"),
                 source="greenhouse",
                 posted_at=(
-                    datetime.fromisoformat(
-                        published.replace("Z", "+00:00")
-                    )
-                    if published else None
+                    datetime.fromisoformat(published.replace("Z", "+00:00"))
+                    if published
+                    else None
                 ),
             )
 

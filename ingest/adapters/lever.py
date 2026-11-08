@@ -1,4 +1,3 @@
-
 from datetime import datetime, timezone
 
 import httpx
@@ -39,10 +38,7 @@ class LeverAdapter(JobFetcher):
                 title=job["text"],
                 company=board.company_name,
                 location=categories.get("location"),
-                description=(
-                    job.get("descriptionPlain")
-                    or job.get("description")
-                ),
+                description=(job.get("descriptionPlain") or job.get("description")),
                 apply_url=job.get("applyUrl"),
                 source="lever",
                 posted_at=(
@@ -50,7 +46,8 @@ class LeverAdapter(JobFetcher):
                         created_at / 1000,
                         tz=timezone.utc,
                     )
-                    if created_at is not None else None
+                    if created_at is not None
+                    else None
                 ),
             )
 

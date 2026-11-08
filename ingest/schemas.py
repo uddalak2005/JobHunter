@@ -19,7 +19,7 @@ class NormalizedJob(BaseModel):
 
     posted_at: datetime | None = None
     discovered_at: datetime = Field(default_factory=utcnow)
-    
+
 
 class ATSBoard(BaseModel):
     provider: Literal["greenhouse", "lever", "ashby"]

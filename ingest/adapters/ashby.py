@@ -1,4 +1,3 @@
-
 from datetime import datetime
 
 import httpx
@@ -41,10 +40,9 @@ class AshbyAdapter(JobFetcher):
                 apply_url=job.get("applyUrl"),
                 source="ashby",
                 posted_at=(
-                    datetime.fromisoformat(
-                        published.replace("Z", "+00:00")
-                    )
-                    if published else None
+                    datetime.fromisoformat(published.replace("Z", "+00:00"))
+                    if published
+                    else None
                 ),
             )
 
