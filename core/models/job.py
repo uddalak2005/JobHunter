@@ -3,19 +3,12 @@ from datetime import datetime, timezone
 from typing import Optional
 
 from sqlalchemy import (
-    JSON,
-    Boolean,
     DateTime,
-    Enum,
-    Float,
-    ForeignKey,
-    Index,
-    Integer,
     String,
     Text,
     UniqueConstraint,
 )
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 
 from core.models.base import Base
 
